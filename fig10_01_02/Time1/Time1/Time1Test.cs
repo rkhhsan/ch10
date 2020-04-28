@@ -40,6 +40,9 @@ public class Time1Test
       Console.WriteLine( time.ToUniversalString() );
       Console.Write( "Standard time: " );
       Console.WriteLine( time.ToString() );
+
+      Console.WriteLine("\nTecle qualquer tecla para finalizar...");
+      Console.ReadKey();
    } // end Main
 } // end class Time1Test
 

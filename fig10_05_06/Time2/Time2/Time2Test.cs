@@ -18,13 +18,11 @@ public class Time2Test
       Console.WriteLine( "   {0}", t1.ToUniversalString() ); // 00:00:00
       Console.WriteLine( "   {0}\n", t1.ToString() ); // 12:00:00 AM
 
-      Console.WriteLine(
-         "t2: hour specified; minute and second defaulted" );
+      Console.WriteLine("t2: hour specified; minute and second defaulted" );
       Console.WriteLine( "   {0}", t2.ToUniversalString() ); // 02:00:00
       Console.WriteLine( "   {0}\n", t2.ToString() ); // 2:00:00 AM
 
-      Console.WriteLine(
-         "t3: hour and minute specified; second defaulted" );
+      Console.WriteLine("t3: hour and minute specified; second defaulted" );
       Console.WriteLine( "   {0}", t3.ToUniversalString() ); // 21:34:00
       Console.WriteLine( "   {0}\n", t3.ToString() ); // 9:34:00 PM
 
@@ -46,6 +44,9 @@ public class Time2Test
          Console.WriteLine( "\nException while initializing t6:" );
          Console.WriteLine( ex.Message );
       } // end catch
+
+      Console.WriteLine("\nTecle qualquer tecla para finalizar...");
+      Console.ReadKey();
    } // end Main
 } // end class Time2Test
 

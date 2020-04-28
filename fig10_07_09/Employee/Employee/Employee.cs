@@ -8,8 +8,7 @@ public class Employee
    public Date HireDate { get; private set; }
 
    // constructor to initialize name, birth date and hire date
-   public Employee( string first, string last,
-      Date dateOfBirth, Date dateOfHire )
+   public Employee( string first, string last, Date dateOfBirth, Date dateOfHire )
    {
       FirstName = first;
       LastName = last;

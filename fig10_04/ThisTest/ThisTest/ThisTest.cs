@@ -11,16 +11,25 @@ public class ThisTest
    } // end Main
 } // end class ThisTest
 
-// class SimpleTime demonstrates the "this" reference
+
+/// <summary>
+/// class SimpleTime demonstrates the "this" reference 
+/// </summary>
 public class SimpleTime
 {
    private int hour; // 0-23
    private int minute; // 0-59
    private int second; // 0-59 
 
-   // if the constructor uses parameter names identical to 
-   // instance variable names the "this" reference is 
-   // required to distinguish between names
+
+   /// <summary>
+   /// if the constructor uses parameter names identical to 
+   /// instance variable names the "this" reference is 
+   /// required to distinguish between names
+   /// </summary>
+   /// <param name="hour"></param>
+   /// <param name="minute"></param>
+   /// <param name="second"></param>
    public SimpleTime( int hour, int minute, int second )
    {
       this.hour = hour; // set "this" object's hour instance variable
@@ -28,7 +37,11 @@ public class SimpleTime
       this.second = second; // set "this" object's second
    } // end SimpleTime constructor
 
-   // use explicit and implicit "this" to call ToUniversalString
+  
+   /// <summary>
+   /// use explicit and implicit "this" to call ToUniversalString
+   /// </summary>
+   /// <returns></returns>
    public string BuildString()
    {
       return string.Format( "{0,24}: {1}\n{2,24}: {3}",
@@ -36,7 +49,11 @@ public class SimpleTime
          "ToUniversalString()", ToUniversalString() );
    } // end method BuildString
 
-   // convert to string in universal-time format (HH:MM:SS)
+  
+   /// <summary>
+   /// convert to string in universal-time format (HH:MM:SS) 
+   /// </summary>
+   /// <returns></returns>
    public string ToUniversalString()
    {
       // "this" is not required here to access instance variables, 
