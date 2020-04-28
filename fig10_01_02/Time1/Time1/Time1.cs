@@ -1,15 +1,23 @@
 ﻿// Fig. 10.1: Time1.cs
 // Time1 class declaration maintains the time in 24-hour format.
 using System; // namespace containing ArgumentOutOfRangeException
-
+/// <summary>
+/// Time1 class declaration maintains the time in 24-hour format.
+/// </summary>
 public class Time1
 {
    private int hour; // 0 - 23
    private int minute; // 0 - 59
    private int second; // 0 - 59
 
-   // set a new time value using universal time; throw an 
-   // exception if the hour, minute or second is invalid
+
+   /// <summary>
+   /// set a new time value using universal time; throw an 
+   /// exception if the hour, minute or second is invalid
+   /// </summary>
+   /// <param name="h">int</param>
+   /// <param name="m">int</param>
+   /// <param name="s">int</param>
    public void SetTime( int h, int m, int s )
    {
       // validate hour, minute and second
@@ -24,14 +32,22 @@ public class Time1
          throw new ArgumentOutOfRangeException();
    } // end method SetTime
 
-   // convert to string in universal-time format (HH:MM:SS)
+
+   /// <summary>
+   /// convert to string in universal-time format (HH:MM:SS)
+   /// </summary>
+   /// <returns>string</returns>
    public string ToUniversalString()
    {
       return string.Format( "{0:D2}:{1:D2}:{2:D2}",
          hour, minute, second );
    } // end method ToUniversalString
 
-   // convert to string in standard-time format (H:MM:SS AM or PM)
+
+   /// <summary>
+   /// convert to string in standard-time format (H:MM:SS AM or PM) 
+   /// </summary>
+   /// <returns>string</returns>
    public override string ToString()
    {
       return string.Format( "{0}:{1:D2}:{2:D2} {3}",
