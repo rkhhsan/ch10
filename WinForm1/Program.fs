@@ -1,6 +1,49 @@
 ﻿open System.Drawing
 open System.Windows.Forms
 open System
+open System.IO
+// --------------------------------------------------------------------------
+// Functional Programming in .NET - Chapter 4
+// --------------------------------------------------------------------------
+
+
+
+// Code shared by both versions
+// Section 4.2.1: Loading and processing data
+// Listing 4.2: Parsing a row from the file
+// Convert line from the CSV file to (label, number) tuple
+let convertDataRow (csvLine : string) = 
+    // Create a list with individual cells
+    let cells = List.ofSeq (csvLine.Split(','))
+    // List should contain at least two elements
+    match cells with
+    | title :: numericValue :: _ -> 
+        // Convert second element to number & return tuple
+        let parsedNumber = Int32.Parse(numericValue)
+        (title, parsedNumber)
+    | _ -> failwith "Incorrect data format!"
+
+// Listing 4.3: Parsing multiple lines from the input file
+// Converts the data set loaded from CSV - takes a list 
+// of strings and returns list of (lbl, num) tuples
+let rec processLines (lines) = 
+    match lines with
+    | [] -> []
+    | currentLine :: remaining -> 
+        // For a non-empty list - 
+        // process the first element & the rest recursively
+        let parsedLine = convertDataRow (currentLine)
+        let parsedRest = processLines (remaining)
+        parsedLine :: parsedRest
+
+// Listing 4.4 Calculating a sum of numeric values in the list
+// Counts summary of values in the data set
+let rec calculateSum (rows) = 
+    match rows with
+    | [] -> 0
+    | (_, value) :: tail -> 
+        let remainingSum = calculateSum (tail)
+        value + remainingSum
 
 // Create main form window
 let mainForm = new Form(Width = 620, Height = 450, Text = "Pie Chart")
